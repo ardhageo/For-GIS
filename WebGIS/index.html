@@ -40,7 +40,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/DataLokasiRambu002_1.js"></script>
+        <script src="data/DataLokasiRambu_2.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -80,7 +80,16 @@
         });
         layer_GoogleEarth_0;
         map.addLayer(layer_GoogleEarth_0);
-        function pop_DataLokasiRambu002_1(feature, layer) {
+        map.createPane('pane_BahayaBanjir_1');
+        map.getPane('pane_BahayaBanjir_1').style.zIndex = 401;
+        var img_BahayaBanjir_1 = 'data/BahayaBanjir_1.png';
+        var img_bounds_BahayaBanjir_1 = [[-8.780713848073898,110.89465174832193],[-5.0424415276561305,116.27106872377715]];
+        var layer_BahayaBanjir_1 = new L.imageOverlay(img_BahayaBanjir_1,
+                                              img_bounds_BahayaBanjir_1,
+                                              {pane: 'pane_BahayaBanjir_1'});
+        bounds_group.addLayer(layer_BahayaBanjir_1);
+        map.addLayer(layer_BahayaBanjir_1);
+        function pop_DataLokasiRambu_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">No</th>\
@@ -121,11 +130,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_DataLokasiRambu002_1_0(feature) {
+        function style_DataLokasiRambu_2_0(feature) {
             switch(String(feature.properties['Jenis Rambu'])) {
                 case 'Jalur Evakuasi':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -141,7 +150,7 @@
                     break;
                 case 'Titik Kumpul':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -157,7 +166,7 @@
                     break;
                 case 'Peringatan Banjir':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -173,7 +182,7 @@
                     break;
                 case 'Peringatan Longsor':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -189,7 +198,7 @@
                     break;
                 case 'Peringatan Tsunami':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -205,7 +214,7 @@
                     break;
                 case 'Papan Himbauan Longsor':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -221,7 +230,7 @@
                     break;
                 case 'Papan Himbauan Longsor dan Pohon Tumbang':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -237,7 +246,7 @@
                     break;
                 case 'Papan Himbauan Putting Beliung':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -253,7 +262,7 @@
                     break;
                 case 'Papan Himbauan Tsunami':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -269,7 +278,7 @@
                     break;
                 case 'Papan Desa Tangguh Bencana':
                     return {
-                pane: 'pane_DataLokasiRambu002_1',
+                pane: 'pane_DataLokasiRambu_2',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -285,26 +294,26 @@
                     break;
             }
         }
-        map.createPane('pane_DataLokasiRambu002_1');
-        map.getPane('pane_DataLokasiRambu002_1').style.zIndex = 401;
-        map.getPane('pane_DataLokasiRambu002_1').style['mix-blend-mode'] = 'normal';
-        var layer_DataLokasiRambu002_1 = new L.geoJson(json_DataLokasiRambu002_1, {
+        map.createPane('pane_DataLokasiRambu_2');
+        map.getPane('pane_DataLokasiRambu_2').style.zIndex = 402;
+        map.getPane('pane_DataLokasiRambu_2').style['mix-blend-mode'] = 'normal';
+        var layer_DataLokasiRambu_2 = new L.geoJson(json_DataLokasiRambu_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DataLokasiRambu002_1',
-            layerName: 'layer_DataLokasiRambu002_1',
-            pane: 'pane_DataLokasiRambu002_1',
-            onEachFeature: pop_DataLokasiRambu002_1,
+            dataVar: 'json_DataLokasiRambu_2',
+            layerName: 'layer_DataLokasiRambu_2',
+            pane: 'pane_DataLokasiRambu_2',
+            onEachFeature: pop_DataLokasiRambu_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_DataLokasiRambu002_1_0(feature));
+                return L.circleMarker(latlng, style_DataLokasiRambu_2_0(feature));
             },
         });
-        bounds_group.addLayer(layer_DataLokasiRambu002_1);
-        map.addLayer(layer_DataLokasiRambu002_1);
+        bounds_group.addLayer(layer_DataLokasiRambu_2);
+        map.addLayer(layer_DataLokasiRambu_2);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -316,8 +325,13 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Data Lokasi Rambu 002<br /><table><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_JalurEvakuasi0.png" /></td><td>Jalur Evakuasi</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_TitikKumpul1.png" /></td><td>Titik Kumpul</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_PeringatanBanjir2.png" /></td><td>Peringatan Banjir</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_PeringatanLongsor3.png" /></td><td>Peringatan Longsor</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_PeringatanTsunami4.png" /></td><td>Peringatan Tsunami</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_PapanHimbauanLongsor5.png" /></td><td>Papan Himbauan Longsor</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_PapanHimbauanLongsordanPohonTumbang6.png" /></td><td>Papan Himbauan Longsor dan Pohon Tumbang</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_PapanHimbauanPuttingBeliung7.png" /></td><td>Papan Himbauan Putting Beliung</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_PapanHimbauanTsunami8.png" /></td><td>Papan Himbauan Tsunami</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu002_1_PapanDesaTangguhBencana9.png" /></td><td>Papan Desa Tangguh Bencana</td></tr></table>': layer_DataLokasiRambu002_1,"Google Earth": layer_GoogleEarth_0,}).addTo(map);
+        L.control.layers(baseMaps,{'Data Lokasi Rambu<br /><table><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_JalurEvakuasi0.png" /></td><td>Jalur Evakuasi</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_TitikKumpul1.png" /></td><td>Titik Kumpul</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_PeringatanBanjir2.png" /></td><td>Peringatan Banjir</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_PeringatanLongsor3.png" /></td><td>Peringatan Longsor</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_PeringatanTsunami4.png" /></td><td>Peringatan Tsunami</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_PapanHimbauanLongsor5.png" /></td><td>Papan Himbauan Longsor</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_PapanHimbauanLongsordanPohonTumbang6.png" /></td><td>Papan Himbauan Longsor dan Pohon Tumbang</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_PapanHimbauanPuttingBeliung7.png" /></td><td>Papan Himbauan Putting Beliung</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_PapanHimbauanTsunami8.png" /></td><td>Papan Himbauan Tsunami</td></tr><tr><td style="text-align: center;"><img src="legend/DataLokasiRambu_2_PapanDesaTangguhBencana9.png" /></td><td>Papan Desa Tangguh Bencana</td></tr></table>': layer_DataLokasiRambu_2,"Bahaya Banjir": layer_BahayaBanjir_1,"Google Earth": layer_GoogleEarth_0,}).addTo(map);
         setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
         </script>
     </body>
 </html>
